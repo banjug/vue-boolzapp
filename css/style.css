@@ -129,22 +129,43 @@ main {
     background-color: teal;
 }
 
+.last-login {
+    color: #6a7376;
+    font-size: .9rem;
+}
+
 .chat-body {
     height: calc(100% - 160px);
     padding: 50px;
     display: flex;
     flex-direction: column;
+    background-color: #000;
+    background-image: url(../img/wp.jpg);
 }
 
 .chat-bubble {
     width: 40%;
-    padding: 10px;
+    padding: 20px 10px;
     margin-bottom: 10px;
-    background-color: chartreuse;
+    border-radius: 10px;
+    position: relative;
+}
+
+.chat-bubble.received {
+    background-color: #fff;
 }
 
 .chat-bubble.sent {
     align-self: flex-end;
+    background-color: #d5f9ba;
+}
+
+.message-time {
+    color: #b5b9bb;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: .7rem;
 }
 
 .chat-input-cont {
@@ -152,12 +173,19 @@ main {
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    background-color: burlywood;
+    background-color: #f3eeea;
     padding: 10px 0;
+}
+
+.chat-input-cont i {
+    font-size: 1.5rem;
+    color: #6a7376;
+    padding: 0 30px;
 }
 
 .chat-input {
     height: 100%;
     width: 100%;
     padding-left: 20px;
+    border: none;
 }

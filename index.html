@@ -50,19 +50,6 @@
                                 {{user.messages[user.messages.length - 1].date}}
                             </div>
                         </div>
-
-                        <!-- <div class="chat-user">
-                            <div class="user">
-                                <img src="img/03.svg" alt="" class="user-img">
-                                <div class="chat-prev">
-                                    <h4>Lorem Ipsum</h4>
-                                    <span>Lorem Ipsum</span>
-                                </div>
-                            </div>
-                            <div class="chat-time">
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </aside>
@@ -73,7 +60,7 @@
                         <img src="img/02.svg" alt="" class="user-img">
                         <div>
                             <h4>Lorem Ipsum</h4>
-                            <span>Lorem ipsum dolor sit amet.</span>
+                            <span class="last-login">Ultimo accesso il {{contacts[0].messages[contacts[0].messages.length - 1].date}}</span>
                         </div>
                     </div>
                     <div class="header-icons">
@@ -84,16 +71,16 @@
                 </header>
 
                 <div class="chat-body">
-                    <div class="chat-bubble sent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, officia.</div>
-                    <div class="chat-bubble sent">Lorem, ipsum.</div>
-                    <div class="chat-bubble received">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, aperiam?</div>
+                    <div v-for="message, i in contacts[0].messages" :key="i"  class="chat-bubble" :class="message.status">{{message.text}}
+                        <span class="message-time">{{message.date}}</span>
+                    </div>
 
                 </div>
 
                 <div class="chat-input-cont">
-                    <div class="img-placeholder"></div>
+                    <i class="far fa-smile"></i>
                     <input type="text" class="chat-input" placeholder="Scrivi un messaggio.">
-                    <div class="img-placeholder"></div>
+                    <i class="fas fa-microphone"></i>
                 </div>
             </main>
 
