@@ -36,7 +36,6 @@ header {
 }
 
 .user {
-    width: 150px;
     height: 50px;
     background-color: #fff;
     display: flex;
@@ -58,6 +57,7 @@ header {
     height: 100px;
     background-color: aqua;
     display: flex;
+    align-items: center;
 }
 
 .search-cont {
@@ -82,12 +82,41 @@ header {
     justify-content: space-between;
 }
 
-.chat-time {
-    
-}
-
 main {
     width: 65%;
     background-color: teal;
     border: 1px solid steelblue;
+}
+
+.chat-body {
+    height: calc(100% - 160px);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-bubble {
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: chartreuse;
+}
+
+.chat-bubble.sender {
+    align-self: flex-end;
+}
+
+.chat-input-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: burlywood;
+    padding: 10px 0;
+}
+
+.chat-input {
+    height: 100%;
+    width: 100%;
+    padding-left: 20px;
 }
