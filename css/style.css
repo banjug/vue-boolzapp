@@ -29,7 +29,7 @@ aside {
 
 header {
     height: 80px;
-    padding: 0 10px;
+    padding: 0 20px;
     background-color: #eaeaea;
     display: flex;
     justify-content: space-between;
@@ -38,7 +38,7 @@ header {
 
 .user {
     width: 50%;
-    height: 50px;
+    height: 80%;
     display: flex;
     align-items: center;
 }
@@ -56,7 +56,7 @@ header {
     background-color: blue;
 }
 
-.icons {
+.header-icons {
     width: 100px;
     height: 50px;
     color: #b1b1b1;
@@ -66,11 +66,30 @@ header {
     align-items: center;
 }
 
+.chat-cont {    
+    display: flex;
+    flex-direction: column;
+}
+
 .notif-banner {
     height: 100px;
+    padding-left: 20px;
     background-color: aqua;
     display: flex;
     align-items: center;
+}
+
+.notif-banner i {
+    color: #8edafc;
+    background-color: #f2fbfe;
+    font-size: 1.4rem;
+    margin: 0 10px;
+    padding: 20px 17px;
+    border-radius: 100%;
+}
+
+.notif-banner a {
+    color: #507485;
 }
 
 .search-cont {
@@ -88,11 +107,21 @@ header {
     padding-left: 20px;
 }
 
+.chat-selector {
+    background-color: #fff;
+    flex-grow: 1;
+}
+
 .chat-user {
     height: 100px;
-    background-color: blanchedalmond;
+    padding: 10px 10px 0 20px;
     display: flex;
     justify-content: space-between;
+}
+
+.chat-prev span, .chat-time {
+    color: #b5b9bb;
+    font-size: .9rem;
 }
 
 main {
@@ -114,7 +143,7 @@ main {
     background-color: chartreuse;
 }
 
-.chat-bubble.sender {
+.chat-bubble.sent {
     align-self: flex-end;
 }
 
