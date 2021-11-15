@@ -3,13 +3,13 @@ var app = new Vue({
     data: {
         user: {
             userName: 'Carlo Carli',
-            avatar: '01',
+            avatar: 'img/01.svg',
             visible: true,
         },
         contacts: [
             {
                 userName: 'Michele',
-                avatar: '02',
+                avatar: 'img/02.svg',
                 visible: true,
                 messages: [
                     {   
@@ -30,8 +30,8 @@ var app = new Vue({
                 ]
             },
             {   
-                name:   'Fabio',   
-                avatar:   '03',   
+                userName:   'Fabio',   
+                avatar:   'img/03.svg',   
                 visible:   true,   
                 messages:   [   
                     {   
@@ -52,8 +52,8 @@ var app = new Vue({
                 ],   
             },  
             {   
-                name:   'Samuele',   
-                avatar:   '04',   
+                userName:   'Samuele',   
+                avatar:   'img/04.svg',   
                 visible:   true,   
                 messages:   [   
                     {   
@@ -74,8 +74,8 @@ var app = new Vue({
                 ],   
             },   
             {   
-                name:   'Luisa',   
-                avatar:   '05',   
+                userName:   'Luisa',   
+                avatar:   'img/05.svg',   
                 visible:   true,   
                 messages:   [   
                     {   

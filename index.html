@@ -38,20 +38,20 @@
                         <input type="text" class="search-input" placeholder="Cerca o inizia una nuova chat." autocomplete="off">
                     </div>
                     <div class="chat-selector">                        
-                        <div class="chat-user">
+                        <div v-for="user, i in contacts" :key="i" class="chat-user">
                             <div class="user">
-                                <img src="img/02.svg" alt="" class="user-img">
+                                <img :src="user.avatar" :alt="user.userName" class="user-img">
                                 <div class="chat-prev">
-                                    <h4>Michele</h4>
-                                    <span>Tutto fatto! ...</span>
+                                    <h4>{{user.userName}}</h4>
+                                    <span>{{user.messages[user.messages.length - 1].text}}</span>
                                 </div>
                             </div>
                             <div class="chat-time">
-                                10/01/2020 16:15
+                                {{user.messages[user.messages.length - 1].date}}
                             </div>
                         </div>
 
-                        <div class="chat-user">
+                        <!-- <div class="chat-user">
                             <div class="user">
                                 <img src="img/03.svg" alt="" class="user-img">
                                 <div class="chat-prev">
@@ -62,7 +62,7 @@
                             <div class="chat-time">
                                 Lorem ipsum dolor sit amet.
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </aside>
