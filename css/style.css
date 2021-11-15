@@ -10,12 +10,26 @@
     height: 100vh;
     background-color: #d7dbd7;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+}
+
+.top-bg {
+    height: 25%;
+    width: 100%;
+    background-color: #029588;
+}
+
+.bottom-bg {
+    height: 75%;
+    width: 100%;
+    background-color: #dadbd4;
 }
 
 .app-cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 90%;
     height: 80%;
     background-color: #fff;
@@ -23,8 +37,10 @@
 }
 
 aside {
+    height: 100%;
     width: 35%;
-    background-color: teal;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -66,11 +82,6 @@ header {
     align-items: center;
 }
 
-.chat-cont {    
-    display: flex;
-    flex-direction: column;
-}
-
 .notif-banner {
     height: 100px;
     padding-left: 20px;
@@ -93,23 +104,30 @@ header {
 }
 
 .search-cont {
-    height: 50px;
-    background-color: beige;
+    height: 60px;
+    background-color: #fafafa;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
+    position: relative;
 }
 
 .search-input {
     width: 100%;
     height: 100%;
-    padding-left: 20px;
+    padding-left: 50px;
+    border: 1px solid #f5f5f5;
+}
+
+.search-cont .fa-search {
+    position: absolute;
+    left: 30px;
+    color: #b5b9bb;
 }
 
 .chat-selector {
     background-color: #fff;
-    flex-grow: 1;
 }
 
 .chat-user {
@@ -117,6 +135,7 @@ header {
     padding: 10px 10px 0 20px;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .chat-prev span, .chat-time {
@@ -141,6 +160,16 @@ main {
     flex-direction: column;
     background-color: #000;
     background-image: url(../img/wp.jpg);
+    position: relative;
+}
+
+.chat-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .chat-bubble {
@@ -188,4 +217,5 @@ main {
     width: 100%;
     padding-left: 20px;
     border: none;
+    border-radius: 5px;
 }
