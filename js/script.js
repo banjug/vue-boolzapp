@@ -1,4 +1,4 @@
-let now = new Date();
+let now = new Date().toLocaleString();
 console.log(now);
 
 var app = new Vue({
@@ -100,6 +100,11 @@ var app = new Vue({
             date: now,
             text: '',
             status: 'sent'
+        },
+        responseMessage: {
+            date: now,
+            text: 'Ok!',
+            status: 'received'
         }
     },
     methods: {
@@ -113,10 +118,16 @@ var app = new Vue({
             }
         },
         // invia un nuovo messaggio salvando il valore dell'input
-        sendMessage(index){
+        sendMessage(){
             if (this.newMessage.text[0] !== ' ' && this.newMessage.text.length > 0) {
-                this.contacts[index].messages.push(this.newMessage);
-                this.newMessage = {date: now, text: '', status: 'sent'};
+                this.contacts.find((element) => {
+                    if(element.visible === true) {
+                        element.messages.push(this.newMessage);
+                        this.newMessage = {date: now, text: '', status: 'sent'};
+                        setTimeout(() => element.messages.push(this.responseMessage), 1000);
+                        this.responseMessage = {date: now, text: 'Ok!', status: 'received'};
+                    }
+                })
             }
         }
 
