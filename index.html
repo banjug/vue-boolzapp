@@ -41,7 +41,7 @@
                         <input type="text" class="search-input" placeholder="Cerca o inizia una nuova chat." autocomplete="off">
                     </div>
                     <div class="chat-selector">                        
-                        <div v-for="user, i in contacts" :key="i" class="chat-user">
+                        <div v-for="user, i in contacts" :key="i" class="chat-user" @click="chatOpen(i)" :class="user.visible === true ? 'chat-active' : '' ">
                             <div class="user">
                                 <img :src="user.avatar" :alt="user.userName" class="user-img">
                                 <div class="chat-prev">
@@ -59,11 +59,11 @@
 
             <main>
                 <header>
-                    <div class="user">
-                        <img src="img/02.svg" alt="" class="user-img">
+                    <div class="user" v-for="contact in contacts" v-if="contact.visible === true">
+                        <img :src="contact.avatar" :alt="contact.name" class="user-img">
                         <div>
-                            <h4>Lorem Ipsum</h4>
-                            <span class="last-login">Ultimo accesso il {{contacts[0].messages[contacts[0].messages.length - 1].date}}</span>
+                            <h4>{{contact.name}}...</h4>
+                            <span class="last-login">Ultimo accesso il {{contact.messages[contact.messages.length - 1].date}}</span>
                         </div>
                     </div>
                     <div class="header-icons">
@@ -75,9 +75,13 @@
 
                 <div class="chat-body">
                     <div class="chat-overlay"></div>
-                    <div v-for="message, i in contacts[0].messages" :key="i"  class="chat-bubble" :class="message.status">{{message.text}}
-                        <span class="message-time">{{message.date}}</span>
+                    
+                    <div class="message-container" v-for="contact in contacts">
+                        <div v-if="contact.visible === true" v-for="message in contact.messages" class="chat-bubble" :class="message.status">{{message.text}}
+                            <span class="message-time">{{message.date}}</span>
+                        </div>
                     </div>
+                        
 
                 </div>
 

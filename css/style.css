@@ -136,6 +136,15 @@ header {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
+}
+
+.chat-user:hover {
+    background-color: #e9ebeb;
+}
+
+.chat-user.chat-active {
+    background-color: #e9ebeb;
 }
 
 .chat-prev span, .chat-time {
@@ -156,11 +165,15 @@ main {
 .chat-body {
     height: calc(100% - 160px);
     padding: 50px;
-    display: flex;
-    flex-direction: column;
     background-color: #000;
     background-image: url(../img/wp.jpg);
     position: relative;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+
 }
 
 .chat-overlay {
