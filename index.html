@@ -76,9 +76,9 @@
                 <!-- header chat  -->
                 <header>
                     <div class="user" v-for="contact in contacts" v-if="contact.visible === true">
-                        <img :src="contact.avatar" :alt="contact.name" class="user-img">
+                        <img :src="contact.avatar" :alt="contact.userName" class="user-img">
                         <div>
-                            <h4>{{contact.name}}...</h4>
+                            <h4>{{contact.userName}}</h4>
                             <span class="last-login">Ultimo accesso il {{contact.messages[contact.messages.length - 1].date}}</span>
                         </div>
                     </div>
