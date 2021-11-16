@@ -5,6 +5,9 @@
     font-family: sans-serif;
 }
 
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+/* contenitore generale  */
 .main-container {
     width: 100vw;
     height: 100vh;
@@ -13,6 +16,7 @@
     position: relative;
 }
 
+/* sfondi colorati  */
 .top-bg {
     height: 25%;
     width: 100%;
@@ -25,6 +29,9 @@
     background-color: #dadbd4;
 }
 
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+/* contenitore app  */
 .app-cont {
     position: absolute;
     top: 50%;
@@ -36,6 +43,9 @@
     display: flex;
 }
 
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+/* contenitore laterale */
 aside {
     height: 100%;
     width: 35%;
@@ -43,6 +53,9 @@ aside {
     flex-direction: column;
 }
 
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+/* header (riutilizzato anche per la chat) */
 header {
     height: 80px;
     padding: 0 20px;
@@ -66,12 +79,6 @@ header {
     border-radius: 100%;
 }
 
-.img-placeholder {
-    width: 50px;
-    height: 50px;
-    background-color: blue;
-}
-
 .header-icons {
     width: 100px;
     height: 50px;
@@ -82,6 +89,9 @@ header {
     align-items: center;
 }
 
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+/* notifiche */
 .notif-banner {
     height: 100px;
     padding-left: 20px;
@@ -103,6 +113,9 @@ header {
     color: #507485;
 }
 
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+/* ricerca */
 .search-cont {
     height: 60px;
     background-color: #fafafa;
@@ -126,6 +139,9 @@ header {
     color: #b5b9bb;
 }
 
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+/* contatti  */
 .chat-selector {
     background-color: #fff;
 }
@@ -152,6 +168,9 @@ header {
     font-size: .9rem;
 }
 
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+/* contenitore principale chat  */
 main {
     width: 65%;
     background-color: teal;
@@ -162,6 +181,7 @@ main {
     font-size: .9rem;
 }
 
+/* contenitore messaggi  */
 .chat-body {
     height: calc(100% - 160px);
     padding: 50px;
@@ -210,6 +230,9 @@ main {
     font-size: .7rem;
 }
 
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+/* contenitore input messaggi  */
 .chat-input-cont {
     display: flex;
     justify-content: space-between;

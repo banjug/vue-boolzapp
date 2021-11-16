@@ -1,11 +1,13 @@
 var app = new Vue({
     el: '#app',
     data: {
+        // dati utente 
         user: {
             userName: 'Carlo Carli',
             avatar: 'img/01.svg',
             visible: true,
         },
+        // dati contatti 
         contacts: [
             {
                 userName: 'Michele',
@@ -92,6 +94,7 @@ var app = new Vue({
             }, 
         ]
     },
+    // al click cambia valore di visible (utilizzato per cambiare classe active al selettore dei contatti e stampare i relativi messaggi)
     methods: {
         chatOpen(index) {
             if (this.contacts[index].visible === false) {
