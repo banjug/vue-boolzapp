@@ -7,14 +7,14 @@ var app = new Vue({
         // dati utente 
         user: {
             userName: 'Carlo Carli',
-            avatar: 'img/01.svg',
+            avatar: 'img/avatar_io.jpg',
             visible: true,
         },
         // dati contatti 
         contacts: [
             {
                 userName: 'Michele',
-                avatar: 'img/02.svg',
+                avatar: 'img/avatar_1.jpg',
                 visible: true,
                 search: true,
                 messages: [
@@ -37,7 +37,7 @@ var app = new Vue({
             },
             {   
                 userName: 'Fabio',   
-                avatar: 'img/03.svg',   
+                avatar: 'img/avatar_2.jpg',   
                 visible: false,   
                 search: true,
                 messages: [   
@@ -60,7 +60,7 @@ var app = new Vue({
             },  
             {   
                 userName: 'Samuele',   
-                avatar: 'img/04.svg',   
+                avatar: 'img/avatar_3.jpg',   
                 visible: false,   
                 search: true,
                 messages: [   
@@ -83,7 +83,7 @@ var app = new Vue({
             },   
             {   
                 userName: 'Luisa',   
-                avatar: 'img/05.svg',   
+                avatar: 'img/avatar_4.jpg',   
                 visible: false,   
                 search: true,
                 messages: [   

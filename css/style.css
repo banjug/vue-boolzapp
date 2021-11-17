@@ -37,8 +37,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    height: 80%;
+    width: 85%;
+    height: 95%;
     background-color: #fff;
     display: flex;
 }
