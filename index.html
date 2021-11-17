@@ -59,7 +59,7 @@
                             la prima imposta la classe active quando il valore user.visible è su true che significa che il contatto è selezionato e viene visualizzata la sua chat
                             il secondo valore aggiunge la classe search-false che nasconde i contatti che non corrispondono alla ricerca
                         -->
-                        <div v-for="user, i in contacts" :key="i" class="chat-user" @click="chatOpen(i)" :class="{'chat-active': user.visible, 'search-false': user.search === false}">
+                        <div v-for="user, i in contacts" :key="i" class="chat-user" @click="chatOpen(i)" :class="{'chat-active': user.visible}" v-if="user.search === true">
                             <div class="user">
                                 <img :src="user.avatar" :alt="user.userName" class="user-img">
                                 <div class="chat-prev">
