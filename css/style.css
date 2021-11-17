@@ -168,6 +168,10 @@ header {
     font-size: .9rem;
 }
 
+.search-false {
+    display: none;
+}
+
 /* --------------------------------------------------- */
 /* --------------------------------------------------- */
 /* contenitore principale chat  */
@@ -188,6 +192,7 @@ main {
     background-color: #000;
     background-image: url(../img/wp.jpg);
     position: relative;
+    overflow-y: auto;
 }
 
 .message-container {

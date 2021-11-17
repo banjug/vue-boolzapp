@@ -16,6 +16,7 @@ var app = new Vue({
                 userName: 'Michele',
                 avatar: 'img/02.svg',
                 visible: true,
+                search: true,
                 messages: [
                     {   
                         date: '10/01/2020 15:30:55',   
@@ -38,6 +39,7 @@ var app = new Vue({
                 userName: 'Fabio',   
                 avatar: 'img/03.svg',   
                 visible: false,   
+                search: true,
                 messages: [   
                     {   
                         date: '20/03/2020 16:30:00',   
@@ -60,6 +62,7 @@ var app = new Vue({
                 userName: 'Samuele',   
                 avatar: 'img/04.svg',   
                 visible: false,   
+                search: true,
                 messages: [   
                     {   
                         date: '28/03/2020 10:10:40',   
@@ -82,6 +85,7 @@ var app = new Vue({
                 userName: 'Luisa',   
                 avatar: 'img/05.svg',   
                 visible: false,   
+                search: true,
                 messages: [   
                     {   
                         date: '10/01/2020 15:30:55',   
@@ -96,16 +100,20 @@ var app = new Vue({
                 ],   
             }, 
         ],
+        // valore del messaggio inviato
         newMessage: {
             date: now,
             text: '',
             status: 'sent'
         },
+        // messaggio di risposta automatico 
         responseMessage: {
             date: now,
             text: 'Ok!',
             status: 'received'
-        }
+        },
+        // valore del box ricerca 
+        chatSearch: ''
     },
     methods: {
         // al click cambia valore di visible (utilizzato per cambiare classe active al selettore dei contatti e stampare i relativi messaggi)
@@ -128,6 +136,20 @@ var app = new Vue({
                         this.responseMessage = {date: now, text: 'Ok!', status: 'received'};
                     }
                 })
+            }
+        },
+        // confronta il valore del box di ricerca con il valore .userName di ogni contatto, se coincide mantiene il valore .search su true, altrimenti lo cambia in false. il v-bind delle classi nasconde gli elementi che non corrispondono alla ricerca
+        search(){
+            for (let i = 0; i < this.contacts.length; i++){
+
+                filter = this.chatSearch.toUpperCase();
+                console.log(this.chatSearch);
+
+                if (this.contacts[i].userName.toUpperCase().indexOf(filter) > -1) {
+                    this.contacts[i].search = true;
+                } else {
+                    this.contacts[i].search = false;
+                }
             }
         }
 

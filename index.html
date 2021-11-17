@@ -49,12 +49,17 @@
                     <!-- ricerca  -->
                     <div class="search-cont">
                         <i class="fas fa-search"></i>
-                        <input type="text" class="search-input" placeholder="Cerca o inizia una nuova chat." autocomplete="off">
+                        <input type="text" class="search-input" placeholder="Cerca o inizia una nuova chat." autocomplete="off" v-model="chatSearch" @keyup="search()">
                     </div>
                     <!-- -------------------------------------- -->
                     <!-- contatti  -->
-                    <div class="chat-selector">                        
-                        <div v-for="user, i in contacts" :key="i" class="chat-user" @click="chatOpen(i)" :class="user.visible === true ? 'chat-active' : '' ">
+                    <div class="chat-selector">
+                        <!--
+                            il vbind delle classi ha due funzioni
+                            la prima imposta la classe active quando il valore user.visible è su true che significa che il contatto è selezionato e viene visualizzata la sua chat
+                            il secondo valore aggiunge la classe search-false che nasconde i contatti che non corrispondono alla ricerca
+                        -->
+                        <div v-for="user, i in contacts" :key="i" class="chat-user" @click="chatOpen(i)" :class="{'chat-active': user.visible, 'search-false': user.search === false}">
                             <div class="user">
                                 <img :src="user.avatar" :alt="user.userName" class="user-img">
                                 <div class="chat-prev">
