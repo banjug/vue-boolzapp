@@ -1,6 +1,3 @@
-let now = new Date().toLocaleString();
-console.log(now);
-
 var app = new Vue({
     el: '#app',
     data: {
@@ -102,13 +99,13 @@ var app = new Vue({
         ],
         // valore del messaggio inviato
         newMessage: {
-            date: now,
+            date: new Date().toLocaleString(),
             text: '',
             status: 'sent'
         },
         // messaggio di risposta automatico 
         responseMessage: {
-            date: now,
+            date: new Date().toLocaleString(),
             text: 'Ok!',
             status: 'received'
         },
@@ -135,9 +132,9 @@ var app = new Vue({
                 this.contacts.find((element) => {
                     if(element.visible === true) {
                         element.messages.push(this.newMessage);
-                        this.newMessage = {date: now, text: '', status: 'sent'};
+                        this.newMessage = {date: new Date().toLocaleString(), text: '', status: 'sent'};
                         setTimeout(() => element.messages.push(this.responseMessage), 1000);
-                        this.responseMessage = {date: now, text: 'Ok!', status: 'received'};
+                        this.responseMessage = {date: new Date().toLocaleString(), text: 'Ok!', status: 'received'};
                     }
                 })
             }
