@@ -113,7 +113,11 @@ var app = new Vue({
             status: 'received'
         },
         // valore del box ricerca 
-        chatSearch: ''
+        chatSearch: '',
+        // tendina opzioni
+        msgDropdown: {
+            isClicked: false
+        }
     },
     methods: {
         // al click cambia valore di visible (utilizzato per cambiare classe active al selettore dei contatti e stampare i relativi messaggi)
@@ -151,7 +155,14 @@ var app = new Vue({
                     this.contacts[i].search = false;
                 }
             }
+        },
+        msgOptions(){
+            console.log(this.msgDropdown);
+            if (!this.msgDropdown.isClicked) {
+                this.msgDropdown.isClicked = true;
+            } else {
+                this.msgDropdown.isClicked = false;
+            }
         }
-
     }
 })

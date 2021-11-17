@@ -64,7 +64,7 @@
                                 <img :src="user.avatar" :alt="user.userName" class="user-img">
                                 <div class="chat-prev">
                                     <h4>{{user.userName}}</h4>
-                                    <span>{{user.messages[user.messages.length - 1].text}}</span>
+                                    <span>{{user.messages[user.messages.length - 1].text.slice(0, 20)}}...</span>
                                 </div>
                             </div>
                             <div class="chat-time">
@@ -98,8 +98,14 @@
                 <div class="chat-body">
                     <div class="chat-overlay"></div>
                     
-                    <div class="message-container" v-for="contact in contacts">
-                        <div v-if="contact.visible === true" v-for="message in contact.messages" class="chat-bubble" :class="message.status">{{message.text}}
+                    <div class="message-container" v-for="contact, i in contacts" :key="i">
+                        <div v-if="contact.visible === true" v-for="message, i in contact.messages" :key="i" class="chat-bubble" :class="message.status">
+                            {{message.text}}                            
+                            <i class="fas fa-chevron-down" @click="msgOptions"></i>
+                            <ul v-model="msgDropdown" class="msg-options" :class="{'dropdown-visible': msgDropdown.isClicked}">
+                                <li>Info messaggio</li>
+                                <li>Elimina messaggio</li>
+                            </ul>
                             <span class="message-time">{{message.date}}</span>
                         </div>
                     </div>
