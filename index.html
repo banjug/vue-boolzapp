@@ -108,7 +108,7 @@
                             </ul>
                             <span class="message-time">{{message.date}}</span>
                         </div>
-                        <span class="empty-chat-msg" v-model="emptyChat" v-if="contacts[chatIndex].messages.length === 0 && contact.visible === true">{{emptyChat}}</span>
+                        <span class="empty-chat-msg" v-model="emptyChat" v-if="contact.messages.length === 0 && contact.visible === true">{{emptyChat}}</span>
                     </div>
                         
 

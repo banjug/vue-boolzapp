@@ -112,13 +112,15 @@ var app = new Vue({
         newMessage: {
             date: new Date().toLocaleString(),
             text: '',
-            status: 'sent'
+            status: 'sent',
+            msgDropdown: false
         },
         // messaggio di risposta automatico 
         responseMessage: {
             date: new Date().toLocaleString(),
             text: 'Ok!',
-            status: 'received'
+            status: 'received',
+            msgDropdown: false
         },
         // valore del box ricerca 
         chatSearch: '',
@@ -141,9 +143,9 @@ var app = new Vue({
                 this.contacts.find((element) => {
                     if(element.visible === true) {
                         element.messages.push(this.newMessage);
-                        this.newMessage = {date: new Date().toLocaleString(), text: '', status: 'sent'};
+                        this.newMessage = {date: new Date().toLocaleString(), text: '', status: 'sent', msgDropdown: false};
                         setTimeout(() => element.messages.push(this.responseMessage), 1000);
-                        this.responseMessage = {date: new Date().toLocaleString(), text: 'Ok!', status: 'received'};
+                        this.responseMessage = {date: new Date().toLocaleString(), text: 'Ok!', status: 'received', msgDropdown: false};
                     }
                 })
             }
@@ -175,7 +177,6 @@ var app = new Vue({
         // al click su "elimina messaggio" cancella il messaggio selezionato
         deleteMsg(index, msg){
             this.contacts[index].messages.splice(msg, 1);
-            console.log(this.contacts[index].messages);
         }
     }
 })
