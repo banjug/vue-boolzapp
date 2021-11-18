@@ -98,11 +98,11 @@
                 <div class="chat-body">
                     <div class="chat-overlay"></div>
                     
-                    <div class="message-container" v-for="contact, i in contacts" :key="i">
-                        <div v-if="contact.visible === true" v-for="message, i in contact.messages" :key="i" class="chat-bubble" :class="message.status">
+                    <div class="message-container" v-for="contact, chatIndex in contacts" :key="chatIndex">
+                        <div v-if="contact.visible === true" v-for="message, msgIndex in contact.messages" :key="msgIndex" class="chat-bubble" :class="message.status">
                             {{message.text}}                            
-                            <i class="fas fa-chevron-down" @click="msgOptions"></i>
-                            <ul v-model="msgDropdown" class="msg-options" :class="{'dropdown-visible': msgDropdown.isClicked}">
+                            <i class="fas fa-chevron-down" @click="msgOptions(chatIndex, msgIndex)"></i>
+                            <ul class="msg-options" :class="{'dropdown-visible': contact.messages[msgIndex].msgDropdown}">
                                 <li>Info messaggio</li>
                                 <li>Elimina messaggio</li>
                             </ul>
