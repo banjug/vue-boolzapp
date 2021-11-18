@@ -99,7 +99,6 @@
                     <div class="chat-overlay"></div>
                     
                     <div class="message-container" v-for="contact, chatIndex in contacts" :key="chatIndex">
-                        <span class="empty-chat-msg" v-model="emptyChat" v-if="contacts[chatIndex].messages.length === 0">{{emptyChat}}</span>
                         <div v-if="contact.visible === true" v-for="message, msgIndex in contact.messages" :key="msgIndex" class="chat-bubble" :class="message.status">
                             {{message.text}}                            
                             <i class="fas fa-chevron-down" @click="msgOptions(chatIndex, msgIndex)"></i>
@@ -109,6 +108,7 @@
                             </ul>
                             <span class="message-time">{{message.date}}</span>
                         </div>
+                        <span class="empty-chat-msg" v-model="emptyChat" v-if="contacts[chatIndex].messages.length === 0 && contact.visible === true">{{emptyChat}}</span>
                     </div>
                         
 
