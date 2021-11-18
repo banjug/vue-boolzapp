@@ -122,10 +122,8 @@ var app = new Vue({
         },
         // valore del box ricerca 
         chatSearch: '',
-        // emptyChat: {
-        //     text: 'Non sono presenti messaggi.',
-        //     visible: false
-        // }
+        // messaggio che appare se elimino tutti i messaggi 
+        emptyChat: 'Non sono presenti messaggi.'
     },
     methods: {
         // al click cambia valore di visible (utilizzato per cambiare classe active al selettore dei contatti e stampare i relativi messaggi)
@@ -177,6 +175,7 @@ var app = new Vue({
         // al click su "elimina messaggio" cancella il messaggio selezionato
         deleteMsg(index, msg){
             this.contacts[index].messages.splice(msg, 1);
+            console.log(this.contacts[index].messages);
         }
     }
 })

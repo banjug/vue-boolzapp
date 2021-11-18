@@ -56,19 +56,19 @@
                     <div class="chat-selector">
                         <!--
                             il vbind delle classi ha due funzioni
-                            la prima imposta la classe active quando il valore user.visible è su true che significa che il contatto è selezionato e viene visualizzata la sua chat
+                            la prima imposta la classe active quando il valore contact.visible è su true che significa che il contatto è selezionato e viene visualizzata la sua chat
                             il secondo valore aggiunge la classe search-false che nasconde i contatti che non corrispondono alla ricerca
                         -->
-                        <div v-for="user, i in contacts" :key="i" class="chat-user" @click="chatOpen(i)" :class="{'chat-active': user.visible}" v-if="user.search === true">
+                        <div v-for="contact, i in contacts" :key="i" class="chat-user" @click="chatOpen(i)" :class="{'chat-active': contact.visible}" v-if="contact.search === true">
                             <div class="user">
-                                <img :src="user.avatar" :alt="user.userName" class="user-img">
+                                <img :src="contact.avatar" :alt="contact.userName" class="user-img">
                                 <div class="chat-prev">
-                                    <h4>{{user.userName}}</h4>
-                                    <span>{{user.messages[user.messages.length - 1].text.slice(0, 20)}}...</span>
+                                    <h4>{{contact.userName}}</h4>
+                                    <span v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length - 1].text.slice(0, 20)}}...</span>
                                 </div>
                             </div>
-                            <div class="chat-time">
-                                {{user.messages[user.messages.length - 1].date}}
+                            <div class="chat-time" v-if="contact.messages.length > 0">
+                                {{contact.messages[contact.messages.length - 1].date}}
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <img :src="contact.avatar" :alt="contact.userName" class="user-img">
                         <div>
                             <h4>{{contact.userName}}</h4>
-                            <span class="last-login">Ultimo accesso il {{contact.messages[contact.messages.length - 1].date}}</span>
+                            <span class="last-login" v-if="contact.messages.length > 0">Ultimo accesso il {{contact.messages[contact.messages.length - 1].date}}</span>
                         </div>
                     </div>
                     <div class="header-icons">
@@ -97,9 +97,9 @@
                 <!-- contenitore messaggi  -->
                 <div class="chat-body">
                     <div class="chat-overlay"></div>
-                    <!-- <span v-model="emptyChat" class="empty-chat-msg" :class="{'dropdown-visible' : emptyChat}">{{emptyChat.text}}</span> -->
                     
                     <div class="message-container" v-for="contact, chatIndex in contacts" :key="chatIndex">
+                        <span class="empty-chat-msg" v-model="emptyChat" v-if="contacts[chatIndex].messages.length === 0">{{emptyChat}}</span>
                         <div v-if="contact.visible === true" v-for="message, msgIndex in contact.messages" :key="msgIndex" class="chat-bubble" :class="message.status">
                             {{message.text}}                            
                             <i class="fas fa-chevron-down" @click="msgOptions(chatIndex, msgIndex)"></i>
