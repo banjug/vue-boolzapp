@@ -97,6 +97,7 @@
                 <!-- contenitore messaggi  -->
                 <div class="chat-body">
                     <div class="chat-overlay"></div>
+                    <!-- <span v-model="emptyChat" class="empty-chat-msg" :class="{'dropdown-visible' : emptyChat}">{{emptyChat.text}}</span> -->
                     
                     <div class="message-container" v-for="contact, chatIndex in contacts" :key="chatIndex">
                         <div v-if="contact.visible === true" v-for="message, msgIndex in contact.messages" :key="msgIndex" class="chat-bubble" :class="message.status">
@@ -104,7 +105,7 @@
                             <i class="fas fa-chevron-down" @click="msgOptions(chatIndex, msgIndex)"></i>
                             <ul class="msg-options" :class="{'dropdown-visible': contact.messages[msgIndex].msgDropdown}">
                                 <li>Info messaggio</li>
-                                <li>Elimina messaggio</li>
+                                <li @click="deleteMsg(chatIndex, msgIndex)">Elimina messaggio</li>
                             </ul>
                             <span class="message-time">{{message.date}}</span>
                         </div>

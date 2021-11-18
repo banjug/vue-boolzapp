@@ -122,6 +122,10 @@ var app = new Vue({
         },
         // valore del box ricerca 
         chatSearch: '',
+        // emptyChat: {
+        //     text: 'Non sono presenti messaggi.',
+        //     visible: false
+        // }
     },
     methods: {
         // al click cambia valore di visible (utilizzato per cambiare classe active al selettore dei contatti e stampare i relativi messaggi)
@@ -166,10 +170,13 @@ var app = new Vue({
                 if (!this.contacts[index].messages[msg].msgDropdown) {
                     this.contacts[index].messages[msg].msgDropdown = true;
                 } else {
-                this.contacts[index].messages[msg].msgDropdown = false;}
+                this.contacts[index].messages[msg].msgDropdown = false;
+                }
             }
         },
         // al click su "elimina messaggio" cancella il messaggio selezionato
-        
+        deleteMsg(index, msg){
+            this.contacts[index].messages.splice(msg, 1);
+        }
     }
 })
